@@ -1,5 +1,7 @@
 package _01_Sorting_Algorithms;
 
+import java.util.Random;
+
 public class ThanosSorter extends Sorter {
     public ThanosSorter() {
         type = "Thanos";
@@ -44,7 +46,43 @@ public class ThanosSorter extends Sorter {
      * algorithm is up to you!
      */
     @Override
+    //WORKING ON THIS, FIX ARRAY SORTED ALWAYS RETURNING FALSE MAYBE
     void sort(int[] arr, SortingVisualizer display) {
-        
+    		Random rando = new Random();
+    		for (int j = 0; j >-1; j++) {
+    		if(!intArraySorted(arr)) {
+        for (int i = 0; i < arr.length; i++) {
+        		if(rando.nextBoolean()) {
+        			arr[i] = 0;
+        		}
+        		display.updateDisplay();
+		}
+    		} else {
+    			break;
+    		}
+    		} 
+    		display.updateDisplay();
+    }
+    public static boolean intArraySorted(int[] arr) {
+    	boolean acendingOrder = true;
+        for (int i = 0; i < arr.length; i++) {
+        	if(i != 0 ) {
+			for (int j = 0; j < arr.length; j++) {
+				if(j != 0 ) {
+				if(i<j) {
+					if(arr[i]>arr[j]) {
+						acendingOrder = false;
+					}
+				} else if(i>j) {
+					if(arr[i]<arr[j]) {
+						acendingOrder = false;
+					}
+				}
+			}
+				
+			}
+			}
+		}
+        return acendingOrder;
     }
 }
