@@ -58,6 +58,7 @@ public class ThanosSorter extends Sorter {
         		display.updateDisplay();
 		}
     		} else {
+    		
     			break;
     		}
     		} 
@@ -66,9 +67,11 @@ public class ThanosSorter extends Sorter {
     public static boolean intArraySorted(int[] arr) {
     	boolean acendingOrder = true;
         for (int i = 0; i < arr.length; i++) {
-        	if(i != 0 ) {
+        	
+        		if(arr[i] != 0 ) {
 			for (int j = 0; j < arr.length; j++) {
-				if(j != 0 ) {
+				if(arr[j] !=0 ) {
+					
 				if(i<j) {
 					if(arr[i]>arr[j]) {
 						acendingOrder = false;
@@ -81,7 +84,9 @@ public class ThanosSorter extends Sorter {
 			}
 				
 			}
-			}
+        		} else {
+        		}
+			
 		}
         return acendingOrder;
     }
