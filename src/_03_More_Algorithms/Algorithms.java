@@ -1,12 +1,14 @@
 package _03_More_Algorithms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
  * Write your methods in this class
  */
 
-//WORKING ON THIS, KEEP UNCOMMENTING STUFF FROM SECOND MEATHOD IN PACKAGE, UNCOMMENT W COMMAND / AND USE ERROR TO AUTO MAKE MEATHOD
+//WORKING ON THIS LINE 100, ASK TEACHER ABOUT ERROR
+
 public class Algorithms {
     
     public static String multiply(int num1, int num2) {
@@ -75,4 +77,55 @@ public class Algorithms {
 		}
 		return currentTallest;
 	}
+
+	public static Object findLongestWord(List<String> words) {
+		int currentLongest = 0;
+		for (int i = 0; i < words.size(); i++) {
+			if(words.get(i).length()>words.get(currentLongest).length()) {
+				currentLongest = i;
+			}
+		}
+		return words.get(currentLongest);
+	}
+
+	public static Object containsSOS(List<String> message) {
+		for (int i = 0; i < message.size(); i++) {
+			if(message.get(i).contains("... --- ...")) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static List<Double> sortScores(List<Double> results2) {
+		List<Double> results = new ArrayList<Double>();
+		results = results2;
+		
+		List<Double> sortedResults = new ArrayList<Double>();
+		for (int i = results.size(); i > 0; i--) {
+			int lowestResult = 0;
+			for (int j = 0; j < results.size(); j++) {
+				if(results.get(j)<=results.get(lowestResult)) {
+					lowestResult = j;
+				}
+			}
+		
+			sortedResults.add(results.get(lowestResult));
+			results.remove(lowestResult);
+		}
+		System.out.println(sortedResults);
+			return sortedResults;
+		
+	}
+
+//	public static Object sortDNA(List<String> unsortedSequences) {
+//		int currentShortest = 0;
+//		for (int i = 0; i < unsortedSequences.size(); i++) {
+//			if(unsortedSequences.get(i).length()>unsortedSequences.get(currentShortest).length()) {
+//				currentShortest = i;
+//			}
+//		}
+//		return unsortedSequences.get(currentShortest);
+//		
+//	 
 }
