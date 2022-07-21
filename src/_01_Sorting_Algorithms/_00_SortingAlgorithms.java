@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * SelectionSorter
  */
 
-//WORKING ON THIS, THANOS SORTER
+
 public class _00_SortingAlgorithms {
     public static void main(String[] args) {
         String[] options = new String[] {"Bubble", "Bogo", "Thanos", "Heap", "Merge", "Quick","Insertion", "Selection"};

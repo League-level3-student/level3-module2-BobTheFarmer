@@ -7,7 +7,6 @@ import java.util.List;
  * Write your methods in this class
  */
 
-//WORKING ON THIS LINE 100, ASK TEACHER ABOUT ERROR
 
 public class Algorithms {
     
@@ -97,35 +96,94 @@ public class Algorithms {
 		return false;
 	}
 
-	public static List<Double> sortScores(List<Double> results2) {
-		List<Double> results = new ArrayList<Double>();
+	public static List<Double> sortScores(List<Double> words) {
+		/*List<Double> results = new ArrayList<Double>();
 		results = results2;
 		
 		List<Double> sortedResults = new ArrayList<Double>();
+		List<Integer> usedIndexes = new ArrayList<Integer>();
 		for (int i = results.size(); i > 0; i--) {
 			int lowestResult = 0;
 			for (int j = 0; j < results.size(); j++) {
-				if(results.get(j)<=results.get(lowestResult)) {
+				if(results.get(j)<results.get(lowestResult)  && !usedIndexes.contains(j)) {
 					lowestResult = j;
 				}
 			}
 		
 			sortedResults.add(results.get(lowestResult));
-			results.remove(lowestResult);
+			usedIndexes.add(lowestResult);
 		}
 		System.out.println(sortedResults);
-			return sortedResults;
+			return sortedResults;*/
 		
+			
+//			List<Double> sortedSequences = new ArrayList<Double>();
+//			List<Double> usedValues = new ArrayList<Double>();
+//			for (int i = unsortedSequences.size(); i > 0; i--) {
+//				int indexOfShortest = 0;
+//				for (int j = 0; j < unsortedSequences.size(); j++) {
+//					if(unsortedSequences.get(j) < unsortedSequences.get(indexOfShortest) && !usedValues.contains(unsortedSequences.get(j))) {
+//						
+//						indexOfShortest = j;
+//					}
+//				}
+//				sortedSequences.add(unsortedSequences.get(indexOfShortest));
+//				//System.out.println(indexOfShortest);
+//				usedValues.add(unsortedSequences.get(indexOfShortest));
+//			}
+//			//System.out.println(sortedSequences);
+//			return sortedSequences;
+			
+			for (int i = 0; i < words.size(); i++) {
+				//Put best word at i index
+				int indexOfBestWord = words.size()-1;
+				
+				for (int j = i; j < words.size(); j++) {
+					if(words.get(j).compareTo(words.get(indexOfBestWord)) < 0) {
+						indexOfBestWord = j;
+					}
+					
+				}
+				Double temp = words.get(i);
+				words.set(i, words.get(indexOfBestWord));
+				words.set(indexOfBestWord, temp);
+			}
+			System.out.println(words);
+			return words;
 	}
 
-//	public static Object sortDNA(List<String> unsortedSequences) {
-//		int currentShortest = 0;
-//		for (int i = 0; i < unsortedSequences.size(); i++) {
-//			if(unsortedSequences.get(i).length()>unsortedSequences.get(currentShortest).length()) {
-//				currentShortest = i;
-//			}
-//		}
-//		return unsortedSequences.get(currentShortest);
-//		
-//	 
+	public static Object sortDNA(List<String> unsortedSequences) {
+		List<String> sortedSequences = new ArrayList<String>();
+		List<Integer> usedIndexes = new ArrayList<Integer>();
+		for (int i = unsortedSequences.size(); i > 0; i--) {
+			int indexOfShortest = 0;
+			for (int j = 0; j < unsortedSequences.size(); j++) {
+				if(unsortedSequences.get(j).length() < unsortedSequences.get(indexOfShortest).length() && !usedIndexes.contains(j)) {
+					indexOfShortest = j;
+				}
+			}
+			sortedSequences.add(unsortedSequences.get(indexOfShortest));
+			usedIndexes.add(indexOfShortest);
+		}
+		return sortedSequences;
+	}
+
+	public static List<String> sortWords(List<String> words) {
+		for (int i = 0; i < words.size(); i++) {
+			//Put best word at i index
+			int indexOfBestWord = words.size()-1;
+			
+			for (int j = i; j < words.size(); j++) {
+				if(words.get(j).compareTo(words.get(indexOfBestWord)) < 0) {
+					indexOfBestWord = j;
+				}
+				
+			}
+			String temp = words.get(i);
+			words.set(i, words.get(indexOfBestWord));
+			words.set(indexOfBestWord, temp);
+		}
+		System.out.println(words);
+		return words;
+	}	 
 }
